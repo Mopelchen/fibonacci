@@ -43,4 +43,24 @@ public class FiboMemoBounceTest {
         assertThat(fiboTest.fibonacci(6)).isEqualTo(13);
     }
 
+    @Test
+    public void test_fibonacci_given7_thenReturn21() {
+        assertThat(fiboTest.fibonacci(7)).isEqualTo(21);
+    }
+
+    @Test
+    public void test_fibonacci_given8_thenReturn34() {
+        assertThat(fiboTest.fibonacci(8)).isEqualTo(34);
+    }
+
+    @Test
+    public void test_fibonacci_given9_thenReturn55() {
+        assertThat(fiboTest.fibonacci(9)).isEqualTo(55);
+    }
+
+    @Test
+    public void test_fibonacci_given10_thenReturn89() {
+        assertThat(fiboTest.fibonacci(10)).isEqualTo(89);
+    }
+
 }
