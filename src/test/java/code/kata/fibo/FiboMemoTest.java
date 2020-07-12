@@ -64,4 +64,19 @@ public class FiboMemoTest {
         assertThat(fiboTest.fibonacci(10)).isEqualTo(89);
     }
 
+    @Test
+    public void test_fibonacci_given15_thenReturn987() {
+        fiboTest.fibonacci(15);
+        fiboTest.fibonacci(15);
+        fiboTest.fibonacci(15);
+        fiboTest.fibonacci(15);
+        fiboTest.fibonacci(15);
+        fiboTest.fibonacci(15);
+        fiboTest.fibonacci(15);
+        fiboTest.fibonacci(15);
+        fiboTest.fibonacci(15);
+        fiboTest.fibonacci(15);
+
+        assertThat(fiboTest.fibonacci(15)).isEqualTo(987);
+    }
 }
