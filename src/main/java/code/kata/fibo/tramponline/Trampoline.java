@@ -1,20 +1,14 @@
 package code.kata.fibo.tramponline;
 
-import java.util.stream.Stream;
-
-public interface Trampoline<T> {
-
+public interface Trampoline<T>
+{
     T get();
 
-    default Trampoline<T> bounce() {
+    default Trampoline<T> jump() {
         return this;
     }
 
-    default T result() {
-        return get();
-    }
-
-    default boolean done() {
+    default boolean complete() {
         return true;
     }
 
@@ -25,13 +19,13 @@ public interface Trampoline<T> {
     static <T> Trampoline<T> keepBouncing(final Trampoline<Trampoline<T>> trampoline) {
         return new Trampoline<>() {
             @Override
-            public boolean done() {
+            public boolean complete() {
                 return false;
             }
 
             @Override
-            public Trampoline<T> bounce() {
-                return trampoline.result();
+            public Trampoline<T> jump() {
+                return trampoline.get();
             }
 
             @Override
@@ -39,14 +33,24 @@ public interface Trampoline<T> {
                 return trampoline(this);
             }
 
-            T trampoline(final Trampoline<T> trampoline) {
-                return Stream.iterate(trampoline, Trampoline::bounce)
-                        .filter(Trampoline::done)
+            private T trampoline(final Trampoline<T> trampoline) {
+
+                Trampoline<T> t = trampoline;
+
+                while(!t.complete()) {
+                    t = t.jump();
+                }
+
+                return t.get();
+            }
+
+/*            T trampoline(final Trampoline<T> trampoline) {
+                return Stream.iterate(trampoline, Trampoline::jump)
+                        .filter(Trampoline::complete)
                         .findFirst()
                         .map(Trampoline::result)
                         .orElseThrow();
-            }
+            }*/
         };
     }
-
 }

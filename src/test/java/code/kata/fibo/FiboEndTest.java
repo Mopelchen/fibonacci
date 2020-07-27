@@ -1,5 +1,6 @@
 package code.kata.fibo;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -61,6 +62,12 @@ public class FiboEndTest {
     @Test
     public void test_fibonacci_given10_thenReturn89() {
         assertThat(fiboTest.fibonacci(10)).isEqualTo(89);
+    }
+
+    @Ignore
+    @Test
+    public void test_fibonacci_given1000_thenReturn9079565065540428013() {
+        assertThat(fiboTest.fibonacci(1000)).isEqualTo(9079565065540428013L);
     }
 
     @Test
