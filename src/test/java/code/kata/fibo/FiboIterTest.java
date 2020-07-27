@@ -4,9 +4,9 @@ import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class FiboMemoBounceTest {
+public class FiboIterTest {
 
-    private FiboMemoBounce fiboTest = new FiboMemoBounce();
+    private FiboIter fiboTest = new FiboIter();
 
     @Test
     public void test_fibonacci_given0_thenReturn1() {
