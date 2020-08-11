@@ -1,6 +1,6 @@
 package code.kata.fibo;
 
-import code.kata.fibo.tramponline.Trampoline;
+import code.kata.fibo.trampoline.Trampoline;
 
 import static java.lang.String.format;
 

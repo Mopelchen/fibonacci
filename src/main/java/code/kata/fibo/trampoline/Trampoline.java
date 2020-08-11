@@ -1,4 +1,4 @@
-package code.kata.fibo.tramponline;
+package code.kata.fibo.trampoline;
 
 public interface Trampoline<T>
 {
